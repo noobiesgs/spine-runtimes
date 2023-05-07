@@ -1,0 +1,22 @@
+{
+	"name": "com.esotericsoftware.spine.spine-csharp",
+	"displayName": "spine-csharp Runtime",
+	"description": "This plugin provides the spine-csharp core runtime.",
+	"version": "3.8.0",
+	"unity": "2018.3",
+	"author": {
+		"name": "Esoteric Software",
+		"email": "contact@esotericsoftware.com",
+		"url": "http://esotericsoftware.com/"
+	},
+	"dependencies": {
+	},
+	"keywords": [
+		"spine",
+		"spine-csharp",
+		"runtimes",
+		"2d",
+		"skeletal",
+		"animation"
+	]
+}

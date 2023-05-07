@@ -41,7 +41,7 @@ namespace Spine.Unity.AnimationTools {
 			const int PREV_TIME = -3, PREV_X = -2, PREV_Y = -1;
 			const int X = 1, Y = 2;
 
-			var frames = timeline.frames;
+			var frames = timeline.Frames;
 			if (time < frames[0]) return Vector2.zero;
 
 			float x, y;
@@ -67,8 +67,8 @@ namespace Spine.Unity.AnimationTools {
 				return xy;
 			}
 			else {
-				var boneData = skeletonData.bones.Items[timeline.boneIndex];
-				return xy + new Vector2(boneData.x, boneData.y);
+				var boneData = skeletonData.Bones.Items[timeline.BoneIndex];
+				return xy + new Vector2(boneData.X, boneData.Y);
 			}
 		}
 
@@ -77,12 +77,12 @@ namespace Spine.Unity.AnimationTools {
 		/// The root bone is always boneIndex 0.
 		/// This will return null if a TranslateTimeline is not found.</summary>
 		public static TranslateTimeline FindTranslateTimelineForBone (this Animation a, int boneIndex) {
-			foreach (var timeline in a.timelines) {
+			foreach (var timeline in a.Timelines) {
 				if (timeline.GetType().IsSubclassOf(typeof(TranslateTimeline)))
 					continue;
 
 				var translateTimeline = timeline as TranslateTimeline;
-				if (translateTimeline != null && translateTimeline.boneIndex == boneIndex)
+				if (translateTimeline != null && translateTimeline.BoneIndex == boneIndex)
 					return translateTimeline;
 			}
 			return null;

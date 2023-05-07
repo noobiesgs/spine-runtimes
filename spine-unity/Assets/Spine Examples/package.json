@@ -10,7 +10,7 @@
 		"url": "http://esotericsoftware.com/"
 	},
 	"dependencies": {
-		"com.esotericsoftware.spine.spine-unity": "3.8.0"
+		"com.esotericsoftware.spine.spine-unity": "3.8.1"
 	},
 	"keywords": [
 		"spine",

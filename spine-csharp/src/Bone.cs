@@ -54,7 +54,9 @@ namespace Spine {
 
 		internal bool sorted, active;
 
-		public BoneData Data { get { return data; } }
+        public bool AppliedValid => appliedValid;
+
+        public BoneData Data { get { return data; } }
 		public Skeleton Skeleton { get { return skeleton; } }
 		public Bone Parent { get { return parent; } }
 		public ExposedList<Bone> Children { get { return children; } }
@@ -262,7 +264,7 @@ namespace Spine {
 		///
 		/// Some information is ambiguous in the world transform, such as -1,-1 scale versus 180 rotation.
 		/// </summary>
-		internal void UpdateAppliedTransform () {
+		public void UpdateAppliedTransform () {
 			appliedValid = true;
 			Bone parent = this.parent;
 			if (parent == null) {

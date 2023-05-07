@@ -400,8 +400,8 @@ namespace Spine.Unity.AttachmentTools {
 			var skinAttachments = o.Attachments;
 			var newSkin = new Skin(newName);
 
-			newSkin.bones.AddRange(o.bones);
-			newSkin.constraints.AddRange(o.constraints);
+			newSkin.Bones.AddRange(o.Bones);
+			newSkin.Constraints.AddRange(o.Constraints);
 
 			// Use these to detect and use shared regions.
 			existingRegions.Clear();

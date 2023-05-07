@@ -140,3 +140,11 @@ spine-ue4/SpineUE4.VC.db
 spine-ue4/.vs/
 spine-ue4/SpineUE4.VC.VC.opendb
 node_modules
+/spine-unity/Logs
+/spine-unity/.vs
+/spine-unity/.vsconfig
+/spine-unity/*.csproj
+/spine-unity/Assets/Editor
+/spine-unity/Assets/Editor.meta
+/spine-unity/UserSettings
+/spine-unity/Packages

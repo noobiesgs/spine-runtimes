@@ -146,7 +146,7 @@ namespace Spine.Unity.Deprecated {
 
 			int numSlotsWithCustomMaterial = 0;
 			foreach (var s in skeletonRenderer.Skeleton.Slots) {
-				switch (s.data.blendMode) {
+				switch (s.Data.BlendMode) {
 				case BlendMode.Multiply:
 					if (multiplyMaterialSource != null) {
 						slotMaterials[s] = GetOrAddMaterialFor(multiplyMaterialSource, texture);
@@ -164,7 +164,7 @@ namespace Spine.Unity.Deprecated {
 			slotsWithCustomMaterial = new SlotMaterialTextureTuple[numSlotsWithCustomMaterial];
 			int storedSlotIndex = 0;
 			foreach (var s in skeletonRenderer.Skeleton.Slots) {
-				switch (s.data.blendMode) {
+				switch (s.Data.BlendMode) {
 				case BlendMode.Multiply:
 					if (multiplyMaterialSource != null) {
 						slotsWithCustomMaterial[storedSlotIndex++] = new SlotMaterialTextureTuple(s, multiplyMaterialSource, texture);

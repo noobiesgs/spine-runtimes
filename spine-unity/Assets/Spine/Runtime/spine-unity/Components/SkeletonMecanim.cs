@@ -270,9 +270,9 @@ namespace Spine.Unity {
 
 				float speedFactor = stateInfo.speedMultiplier * stateInfo.speed;
 				float lastTime = time - (Time.deltaTime * speedFactor);
-				if (isLooping && clip.duration != 0) {
-					time %= clip.duration;
-					lastTime %= clip.duration;
+				if (isLooping && clip.Duration != 0) {
+					time %= clip.Duration;
+					lastTime %= clip.Duration;
 				}
 				_OnClipApplied(clip, layerIndex, weight, time, lastTime, speedFactor < 0);
 			}

@@ -94,8 +94,8 @@ namespace Spine.Unity {
 
 				int slotIndex = skeleton.FindSlotIndex(slotName);
 				if (slotIndex >= 0) {
-					var slot = skeleton.slots.Items[slotIndex];
-					bone = slot.bone;
+					var slot = skeleton.Slots.Items[slotIndex];
+					bone = slot.Bone;
 					point = skeleton.GetAttachment(slotIndex, pointAttachmentName) as PointAttachment;
 				}
 			}
@@ -156,7 +156,7 @@ namespace Spine.Unity {
 
 			if (followSkeletonFlip) {
 				Vector3 localScale = thisTransform.localScale;
-				localScale.y = Mathf.Abs(localScale.y) * Mathf.Sign(bone.skeleton.ScaleX * bone.skeleton.ScaleY);
+				localScale.y = Mathf.Abs(localScale.y) * Mathf.Sign(bone.Skeleton.ScaleX * bone.Skeleton.ScaleY);
 				thisTransform.localScale = localScale;
 			}
 		}

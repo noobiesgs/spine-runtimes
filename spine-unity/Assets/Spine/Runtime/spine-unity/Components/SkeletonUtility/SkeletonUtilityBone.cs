@@ -130,11 +130,11 @@ namespace Spine.Unity {
 				switch (phase) {
 					case UpdatePhase.Local:
 						if (position)
-							thisTransform.localPosition = new Vector3(bone.x * positionScale, bone.y * positionScale, 0);
+							thisTransform.localPosition = new Vector3(bone.X * positionScale, bone.Y * positionScale, 0);
 
 						if (rotation) {
-							if (bone.data.transformMode.InheritsRotation()) {
-								thisTransform.localRotation = Quaternion.Euler(0, 0, bone.rotation);
+							if (bone.Data.TransformMode.InheritsRotation()) {
+								thisTransform.localRotation = Quaternion.Euler(0, 0, bone.Rotation);
 							} else {
 								Vector3 euler = skeletonTransform.rotation.eulerAngles;
 								thisTransform.rotation = Quaternion.Euler(euler.x, euler.y, euler.z + (bone.WorldRotationX * skeletonFlipRotation));
@@ -142,22 +142,22 @@ namespace Spine.Unity {
 						}
 
 						if (scale) {
-							thisTransform.localScale = new Vector3(bone.scaleX, bone.scaleY, 1f);
+							thisTransform.localScale = new Vector3(bone.ScaleX, bone.ScaleY, 1f);
 							incompatibleTransformMode = BoneTransformModeIncompatible(bone);
 						}
 						break;
 					case UpdatePhase.World:
 					case UpdatePhase.Complete:
 						// Use Applied transform values (ax, ay, AppliedRotation, ascale) if world values were modified by constraints.
-						if (!bone.appliedValid) {
+						if (!bone.AppliedValid) {
 							bone.UpdateAppliedTransform();
 						}
 
 						if (position)
-							thisTransform.localPosition = new Vector3(bone.ax * positionScale, bone.ay * positionScale, 0);
+							thisTransform.localPosition = new Vector3(bone.AX * positionScale, bone.AY * positionScale, 0);
 
 						if (rotation) {
-							if (bone.data.transformMode.InheritsRotation()) {
+							if (bone.Data.TransformMode.InheritsRotation()) {
 								thisTransform.localRotation = Quaternion.Euler(0, 0, bone.AppliedRotation);
 							} else {
 								Vector3 euler = skeletonTransform.rotation.eulerAngles;
@@ -166,7 +166,7 @@ namespace Spine.Unity {
 						}
 
 						if (scale) {
-							thisTransform.localScale = new Vector3(bone.ascaleX, bone.ascaleY, 1f);
+							thisTransform.localScale = new Vector3(bone.AScaleX, bone.AScaleY, 1f);
 							incompatibleTransformMode = BoneTransformModeIncompatible(bone);
 						}
 						break;
@@ -179,8 +179,8 @@ namespace Spine.Unity {
 				if (parentReference == null) {
 					if (position) {
 						Vector3 clp = thisTransform.localPosition / positionScale;
-						bone.x = Mathf.Lerp(bone.x, clp.x, overrideAlpha);
-						bone.y = Mathf.Lerp(bone.y, clp.y, overrideAlpha);
+						bone.X = Mathf.Lerp(bone.X, clp.x, overrideAlpha);
+						bone.Y = Mathf.Lerp(bone.Y, clp.y, overrideAlpha);
 					}
 
 					if (rotation) {
@@ -191,8 +191,8 @@ namespace Spine.Unity {
 
 					if (scale) {
 						Vector3 cls = thisTransform.localScale;
-						bone.scaleX = Mathf.Lerp(bone.scaleX, cls.x, overrideAlpha);
-						bone.scaleY = Mathf.Lerp(bone.scaleY, cls.y, overrideAlpha);
+						bone.ScaleX = Mathf.Lerp(bone.ScaleX, cls.x, overrideAlpha);
+						bone.ScaleY = Mathf.Lerp(bone.ScaleY, cls.y, overrideAlpha);
 					}
 
 				} else {
@@ -201,8 +201,8 @@ namespace Spine.Unity {
 
 					if (position) {
 						Vector3 pos = parentReference.InverseTransformPoint(thisTransform.position) / positionScale;
-						bone.x = Mathf.Lerp(bone.x, pos.x, overrideAlpha);
-						bone.y = Mathf.Lerp(bone.y, pos.y, overrideAlpha);
+						bone.X = Mathf.Lerp(bone.X, pos.x, overrideAlpha);
+						bone.Y = Mathf.Lerp(bone.Y, pos.y, overrideAlpha);
 					}
 
 					if (rotation) {
@@ -213,8 +213,8 @@ namespace Spine.Unity {
 
 					if (scale) {
 						Vector3 cls = thisTransform.localScale;
-						bone.scaleX = Mathf.Lerp(bone.scaleX, cls.x, overrideAlpha);
-						bone.scaleY = Mathf.Lerp(bone.scaleY, cls.y, overrideAlpha);
+						bone.ScaleX = Mathf.Lerp(bone.ScaleX, cls.x, overrideAlpha);
+						bone.ScaleY = Mathf.Lerp(bone.ScaleY, cls.y, overrideAlpha);
 					}
 
 					incompatibleTransformMode = BoneTransformModeIncompatible(bone);
@@ -225,12 +225,12 @@ namespace Spine.Unity {
 		}
 
 		public static bool BoneTransformModeIncompatible (Bone bone) {
-			return !bone.data.transformMode.InheritsScale();
+			return !bone.Data.TransformMode.InheritsScale();
 		}
 
 		public void AddBoundingBox (string skinName, string slotName, string attachmentName) {
 			SkeletonUtility.AddBoneRigidbody2D(transform.gameObject);
-			SkeletonUtility.AddBoundingBoxGameObject(bone.skeleton, skinName, slotName, attachmentName, transform);
+			SkeletonUtility.AddBoundingBoxGameObject(bone.Skeleton, skinName, slotName, attachmentName, transform);
 		}
 
 #if UNITY_EDITOR

@@ -1027,9 +1027,17 @@ namespace Spine {
 			timelinesRotation.Clear();
 		}
 
-		/// <summary>The index of the track where this entry is either current or queued.</summary>
-		/// <seealso cref="AnimationState.GetCurrent(int)"/>
-		public int TrackIndex { get { return trackIndex; } }
+        public float InterruptAlpha => interruptAlpha;
+
+        public float NextTrackLast
+        {
+            get => nextTrackLast;
+            set => nextTrackLast = value;
+        }
+
+        /// <summary>The index of the track where this entry is either current or queued.</summary>
+        /// <seealso cref="AnimationState.GetCurrent(int)"/>
+        public int TrackIndex { get { return trackIndex; } }
 
 		/// <summary>The animation to apply for this track entry.</summary>
 		public Animation Animation { get { return animation; } }

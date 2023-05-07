@@ -103,7 +103,7 @@ namespace Spine.Unity {
 				&&
 				skeletonGraphic.Skeleton == slot.Skeleton		// Skeleton object did not change.
 				&&
-				slotName == slot.data.name						// Slot object did not change.
+				slotName == slot.Data.Name						// Slot object did not change.
 			)
 				return;
 
@@ -136,8 +136,8 @@ namespace Spine.Unity {
 				foreach (var skin in skeleton.Data.Skins)
 					AddCollidersForSkin(skin, slotIndex, colliders, scale, ref requiredCollidersCount);
 
-				if (skeleton.skin != null)
-					AddCollidersForSkin(skeleton.skin, slotIndex, colliders, scale, ref requiredCollidersCount);
+				if (skeleton.Skin != null)
+					AddCollidersForSkin(skeleton.Skin, slotIndex, colliders, scale, ref requiredCollidersCount);
 			}
 			DisposeExcessCollidersAfter(requiredCollidersCount);
 

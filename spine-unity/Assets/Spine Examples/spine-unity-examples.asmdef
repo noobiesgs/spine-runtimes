@@ -1,4 +1,17 @@
 {
-	"name": "spine-unity-examples",
-	"references": [ "spine-unity" ]
+    "name": "spine-unity-examples",
+    "rootNamespace": "",
+    "references": [
+        "spine-unity",
+        "spine-csharp"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

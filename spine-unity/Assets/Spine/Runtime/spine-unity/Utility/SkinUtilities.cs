@@ -55,8 +55,8 @@ namespace Spine.Unity.AttachmentTools {
 
 		public static Skin GetClonedSkin (this Skeleton skeleton, string newSkinName, bool includeDefaultSkin = false, bool cloneAttachments = false, bool cloneMeshesAsLinked = true) {
 			var newSkin = new Skin(newSkinName); // may have null name. Harmless.
-			var defaultSkin = skeleton.data.DefaultSkin;
-			var activeSkin = skeleton.skin;
+			var defaultSkin = skeleton.Data.DefaultSkin;
+			var activeSkin = skeleton.Skin;
 
 			if (includeDefaultSkin)
 				defaultSkin.CopyTo(newSkin, true, cloneAttachments, cloneMeshesAsLinked);
@@ -71,7 +71,7 @@ namespace Spine.Unity.AttachmentTools {
 		/// <summary>
 		/// Gets a shallow copy of the skin. The cloned skin's attachments are shared with the original skin.</summary>
 		public static Skin GetClone (this Skin original) {
-			var newSkin = new Skin(original.name + " clone");
+			var newSkin = new Skin(original.Name + " clone");
 			var newSkinAttachments = newSkin.Attachments;
 			var newSkinBones = newSkin.Bones;
 			var newSkinConstraints = newSkin.Constraints;
@@ -79,8 +79,8 @@ namespace Spine.Unity.AttachmentTools {
 			foreach (var a in original.Attachments)
 				newSkinAttachments[a.Key] = a.Value;
 
-			newSkinBones.AddRange(original.bones);
-			newSkinConstraints.AddRange(original.constraints);
+			newSkinBones.AddRange(original.Bones);
+			newSkinConstraints.AddRange(original.Constraints);
 			return newSkin;
 		}
 
@@ -158,10 +158,10 @@ namespace Spine.Unity.AttachmentTools {
 				}
 			}
 
-			foreach (BoneData data in source.bones)
+			foreach (BoneData data in source.Bones)
 				if (!destinationBones.Contains(data)) destinationBones.Add(data);
 
-			foreach (ConstraintData data in source.constraints)
+			foreach (ConstraintData data in source.Constraints)
 				if (!destinationConstraints.Contains(data)) destinationConstraints.Add(data);
 		}
 	}

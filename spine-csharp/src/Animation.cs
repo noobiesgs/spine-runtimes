@@ -84,13 +84,13 @@ namespace Spine {
 				timelines.Items[i].Apply(skeleton, lastTime, time, events, alpha, blend, direction);
 		}
 
-		override public string ToString () {
+		public override string ToString () {
 			return name;
 		}
 
-		/// <param name="target">After the first and before the last entry.</param>
-		/// <returns>Index of first value greater than the target.</returns>
-		internal static int BinarySearch (float[] values, float target, int step) {
+        /// <param name="target">After the first and before the last entry.</param>
+        /// <returns>Index of first value greater than the target.</returns>
+        public static int BinarySearch (float[] values, float target, int step) {
 			int low = 0;
 			int high = values.Length / step - 2;
 			if (high == 0) return step;
@@ -200,7 +200,7 @@ namespace Spine {
 		Out
 	}
 
-	internal enum TimelineType {
+	public enum TimelineType {
 		Rotate = 0, Translate, Scale, Shear, //
 		Attachment, Color, Deform, //
 		Event, DrawOrder, //
