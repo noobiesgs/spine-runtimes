@@ -185,7 +185,7 @@ namespace Spine.Unity
             {
                 if (hasBinaryExtension)
                 {
-                    var binary = overwriteSkeletonBinaryData ?? skeletonJSON.bytes;
+                    var binary = overwriteSkeletonBinaryData?.Length > 0 ? overwriteSkeletonBinaryData : skeletonJSON.bytes;
                     loadedSkeletonData = SkeletonDataAsset.ReadSkeletonData(binary, attachmentLoader, skeletonDataScale);
                 }
                 else
